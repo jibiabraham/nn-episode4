@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pagalguy</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_closed">Slider Menu Closed</string>
+
+    <!-- Nav drawer menu item labels -->
+    <string-array name="nav_drawer_items">
+        <item>CAT</item>
+        <item>XAT, SNAP, CMAT &amp; Others</item>
+        <item>Bank PO</item>
+        <item>GMAT</item>
+        <item>GRE, GATE &amp; Others</item>
+        <item>Jobs &amp; Careers</item>
+        <item>Lounge</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
