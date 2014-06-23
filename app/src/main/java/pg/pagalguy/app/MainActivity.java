@@ -102,14 +102,38 @@ public class MainActivity extends ActionBarActivity {
 
     // Switch between views
     private void displayView(int position) {
+        String forumUrl;
         // We'll be replace main content with appropriate fragments
         android.support.v4.app.Fragment fragment = null;
         switch (position){
             case 0:
-                fragment = DiscussionsViewFragment.newInstance("http://smaug.pagalguy.com/cat");
+                forumUrl = "http://smaug.pagalguy.com/cat";
+                break;
+            case 1:
+                forumUrl = "http://smaug.pagalguy.com/xat-snap-cmat-others";
+                break;
+            case 2:
+                forumUrl = "http://smaug.pagalguy.com/bank-po";
+                break;
+            case 3:
+                forumUrl = "http://smaug.pagalguy.com/gmat";
+                break;
+            case 4:
+                forumUrl = "http://smaug.pagalguy.com/gre-gate-other-exams";
+                break;
+            case 5:
+                forumUrl = "http://smaug.pagalguy.com/jobs-careers";
+                break;
+            case 6:
+                forumUrl = "http://smaug.pagalguy.com/lounge";
                 break;
             default:
+                forumUrl = null;
                 break;
+        }
+
+        if(forumUrl != null){
+            fragment = DiscussionsViewFragment.newInstance(forumUrl);
         }
 
         if(fragment != null){

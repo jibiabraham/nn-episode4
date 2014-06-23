@@ -12,31 +12,33 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import pg.pagalguy.R;
-import pg.pagalguy.models.DiscussionItem;
+import pg.pagalguy.models.CommentItem;
 
 /**
- * Created by jibi on 17/6/14.
+ * Created by jibi on 19/6/14.
  */
-public class DiscussionsAdapter extends BaseAdapter {
+public class CommentsListAdapter extends BaseAdapter {
     public Context context;
-    public ArrayList<DiscussionItem> discussions;
+    public ArrayList<CommentItem> comments;
 
-    public DiscussionsAdapter(Context context, ArrayList<DiscussionItem> discussions) {
+    public CommentsListAdapter(Context context, ArrayList<CommentItem> comments) {
         this.context = context;
-        this.discussions = discussions;
+        this.comments = comments;
     }
 
     @Override
     public int getCount() {
-        if(this.discussions != null)
-            return this.discussions.size();
+        if(this.comments != null){
+            return this.comments.size();
+        }
         return 0;
     }
 
     @Override
     public Object getItem(int position) {
-        if(this.discussions != null)
-            return this.discussions.get(position);
+        if(this.comments != null){
+            return this.comments.get(position);
+        }
         return null;
     }
 
@@ -50,18 +52,18 @@ public class DiscussionsAdapter extends BaseAdapter {
         // Inflate the item view if null
         if(convertView == null){
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.discussion_list_item, null);
+            convertView = mInflater.inflate(R.layout.post_list_item, null);
         }
 
-        DiscussionItem dItem = (DiscussionItem) getItem(position);
+        CommentItem dItem = (CommentItem) getItem(position);
 
-        TextView lsUpdated = (TextView) convertView.findViewById(R.id.ls_updated);
-        TextView title = (TextView) convertView.findViewById(R.id.title);
+        TextView content = (TextView) convertView.findViewById(R.id.content);
+        TextView nick = (TextView) convertView.findViewById(R.id.nick);
 
-        CharSequence htmlTitle = Html.fromHtml(dItem.getTitle());
-        title.setText(htmlTitle);
+        CharSequence htmlContent = Html.fromHtml(dItem.getContent());
 
-        lsUpdated.setText(dItem.getLastUpdated());
+        content.setText(htmlContent);
+        nick.setText(dItem.getAuthor());
 
         return convertView;
     }

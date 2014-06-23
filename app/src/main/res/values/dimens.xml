@@ -6,4 +6,6 @@
     <dimen name="discussion_title_size">32sp</dimen>
     <dimen name="discussion_last_updated_width">150dp</dimen>
 
+    <dimen name="header_min_height">250dp</dimen>
+
 </resources>

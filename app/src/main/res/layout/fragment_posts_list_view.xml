@@ -2,11 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pg.pagalguy.app.DiscussionsViewFragment"
+    tools:context="pg.pagalguy.app.PostsListViewFragment"
     android:background="#e5e5e5">
 
     <ListView
-        android:id="@+id/list_discussions"
+        android:id="@+id/list_posts"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="fill_parent"

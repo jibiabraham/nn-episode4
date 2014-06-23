@@ -7,22 +7,25 @@ import android.os.Parcelable;
  * Created by jibi on 17/6/14.
  */
 public class DiscussionItem implements Parcelable {
+    private static final String BASEURL = "http://www.pagalguy.com";
+
     private String title;
     private String lastUpdated;
+    private String url;
     private int following;
 
     public DiscussionItem() {}
 
-    public DiscussionItem(String title, String lastUpdated, int following) {
+    public DiscussionItem(String title, String lastUpdated, String url) {
         this.title = title;
         this.lastUpdated = lastUpdated;
-        this.following = following;
+        this.url = url;
     }
 
     public DiscussionItem(Parcel source) {
         title = source.readString();
         lastUpdated = source.readString();
-        following = source.readInt();
+        url = source.readString();
     }
 
     public String getTitle() {
@@ -40,13 +43,12 @@ public class DiscussionItem implements Parcelable {
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
-
-    public int getFollowing() {
-        return following;
+    public String getUrl() {
+        return BASEURL + url;
     }
 
-    public void setFollowing(int following) {
-        this.following = following;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
@@ -58,18 +60,18 @@ public class DiscussionItem implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(lastUpdated);
-        dest.writeInt(following);
+        dest.writeString(url);
     }
 
-    public static final Creator<DiscussionItem> CREATOR = new Creator<DiscussionItem>(){
+    public static final Creator<PostItem> CREATOR = new Creator<PostItem>(){
         @Override
-        public DiscussionItem createFromParcel(Parcel source) {
-            return new DiscussionItem(source);
+        public PostItem createFromParcel(Parcel source) {
+            return new PostItem(source);
         }
 
         @Override
-        public DiscussionItem[] newArray(int size) {
-            return new DiscussionItem[size];
+        public PostItem[] newArray(int size) {
+            return new PostItem[size];
         }
     };
 }
